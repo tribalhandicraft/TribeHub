@@ -1,157 +1,82 @@
-import { Product } from './types';
+import { Category, Product, Translation } from "./types";
 
-export const CATEGORIES = ['All', 'Bamboo', 'Wood', 'Paintings', 'Jewelry', 'Textiles', 'Pottery', 'Food & Fruits'];
+export const CATEGORIES: { id: Category; label: Translation[string] }[] = [
+  { id: 'paintings', label: { en: 'Tribal Paintings', hi: 'आदिवासी चित्रकला', mr: 'आदिवासी पेंटिंग्ज' } },
+  { id: 'handicrafts', label: { en: 'Handicrafts', hi: 'हस्तशिल्प', mr: 'हस्तकला' } },
+  { id: 'statues', label: { en: 'Statues', hi: 'मूर्तियाँ', mr: 'मूर्ती' } },
+  { id: 'minerals', label: { en: 'Minor Minerals', hi: 'लघु खनिज', mr: 'गौण खनिजे' } },
+  { id: 'fruits', label: { en: 'Forest Fruits', hi: 'वन फल', mr: 'वन फळे' } },
+  { id: 'clothing', label: { en: 'Traditional Clothing', hi: 'पारंपरिक वस्त्र', mr: 'पारंपारिक कपडे' } },
+  { id: 'instruments', label: { en: 'Musical Instruments', hi: 'वाद्य यंत्र', mr: 'वाद्ये' } },
+  { id: 'cultural', label: { en: 'Cultural Items', hi: 'सांस्कृतिक वस्तुएं', mr: 'सांस्कृतिक वस्तू' } },
+];
 
-export const PRODUCTS: Product[] = [
+export const TRANSLATIONS: Translation = {
+  appName: { en: 'TribalHeritage', hi: 'जनजातीय धरोहर', mr: 'आदिवासी वारसा' },
+  search: { en: 'Search for products...', hi: 'उत्पाद खोजें...', mr: 'उत्पादने शोधा...' },
+  login: { en: 'Login', hi: 'लॉग इन', mr: 'लॉग इन' },
+  logout: { en: 'Logout', hi: 'लॉग आउट', mr: 'लॉग आउट' },
+  cart: { en: 'Cart', hi: 'कार्ट', mr: 'कार्ट' },
+  home: { en: 'Home', hi: 'होम', mr: 'होम' },
+  shop: { en: 'Shop', hi: 'दुकान', mr: 'खरेदी' },
+  dashboard: { en: 'Dashboard', hi: 'डैशबोर्ड', mr: 'डॅशबोर्ड' },
+  addProduct: { en: 'Add Product', hi: 'उत्पाद जोड़ें', mr: 'उत्पादन जोडा' },
+  myOrders: { en: 'My Orders', hi: 'मेरे ऑर्डर', mr: 'माझ्या ऑर्डर्स' },
+  checkout: { en: 'Checkout', hi: 'चेकआउट', mr: 'चेकआउट' },
+  total: { en: 'Total', hi: 'कुल', mr: 'एकूण' },
+  addToCart: { en: 'Add to Cart', hi: 'कार्ट में डालें', mr: 'कार्टमध्ये टाका' },
+  buyNow: { en: 'Buy Now', hi: 'अभी खरीदें', mr: 'आत्ता खरेदी करा' },
+  seller: { en: 'Seller', hi: 'विक्रेता', mr: 'विक्रेता' },
+  description: { en: 'Description', hi: 'विवरण', mr: 'वर्णन' },
+  aiHelp: { en: 'AI Magic Help', hi: 'AI मदद', mr: 'AI मदत' },
+  generating: { en: 'Generating...', hi: 'बना रहा है...', mr: 'तयार करत आहे...' },
+  welcome: { en: 'Welcome', hi: 'स्वागत है', mr: 'स्वागत आहे' },
+  heroTitle: { en: 'Authentic Tribal Treasures', hi: 'प्रामाणिक आदिवासी खजाने', mr: 'अस्सल आदिवासी ठेवा' },
+  heroSubtitle: { en: 'Direct from artisans to your home.', hi: 'कारीगरों से सीधे आपके घर तक।', mr: 'कारागीरांकडून थेट तुमच्या घरी.' },
+  emptyCart: { en: 'Your cart is empty', hi: 'आपकी कार्ट खाली है', mr: 'तुमची कार्ट रिकामी आहे' },
+  placeOrder: { en: 'Place Order', hi: 'ऑर्डर करें', mr: 'ऑर्डर द्या' },
+  orderSuccess: { en: 'Order Placed Successfully!', hi: 'ऑर्डर सफलतापूर्वक दी गई!', mr: 'ऑर्डर यशस्वीरित्या दिली गेली!' },
+};
+
+export const MOCK_PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Handwoven Bamboo Lamp Shade',
-    category: 'Bamboo',
-    price: 45.00,
-    description: 'Intricately woven bamboo lamp shade, crafted by artisans in Assam. Creates a warm, natural ambiance.',
-    material: 'Natural Bamboo',
+    sellerId: 's1',
+    title: 'Warli Painting Canvas',
+    description: 'Authentic hand-painted Warli art depicting a village festival. Made with natural rice paste on treated canvas.',
+    price: 1500,
+    category: 'paintings',
     image: 'https://picsum.photos/400/400?random=1',
-    artisan: 'Ramesh Das',
-    region: 'Assam, India',
-    isFeatured: true
+    stock: 5,
   },
   {
     id: '2',
-    name: 'Tribal Warli Painting',
-    category: 'Paintings',
-    price: 120.00,
-    description: 'Authentic Warli art on canvas using rice paste and natural dyes. Depicts traditional village life.',
-    material: 'Canvas, Natural Dyes',
+    sellerId: 's2',
+    title: 'Bamboo Flute Set',
+    description: 'Set of 3 professional bamboo flutes tuned to different scales. Handcrafted by tribal artisans.',
+    price: 850,
+    category: 'instruments',
     image: 'https://picsum.photos/400/400?random=2',
-    artisan: 'Suman Warli',
-    region: 'Maharashtra, India',
-    isFeatured: true
+    stock: 12,
   },
   {
     id: '3',
-    name: 'Terracotta Water Pitcher',
-    category: 'Pottery',
-    price: 35.00,
-    description: 'Hand-thrown clay pitcher with natural cooling properties. Painted with traditional motifs.',
-    material: 'Red Clay',
+    sellerId: 's1',
+    title: 'Dhokra Brass Statue',
+    description: 'Ancient lost-wax casting technique used to create this stunning brass tribal horse statue.',
+    price: 3200,
+    category: 'statues',
     image: 'https://picsum.photos/400/400?random=3',
-    artisan: 'Devi Potters',
-    region: 'West Bengal',
-    isFeatured: false
+    stock: 2,
   },
   {
     id: '4',
-    name: 'Dhokra Brass Necklace',
-    category: 'Jewelry',
-    price: 55.00,
-    description: 'Ancient lost-wax casting technique used to create this stunning brass necklace.',
-    material: 'Brass alloy',
+    sellerId: 's3',
+    title: 'Forest Honey (500g)',
+    description: 'Pure, organic wild honey collected from the deep forests. No added sugar or preservatives.',
+    price: 450,
+    category: 'fruits',
     image: 'https://picsum.photos/400/400?random=4',
-    artisan: 'Tribal Arts Collective',
-    region: 'Chhattisgarh',
-    isFeatured: true
+    stock: 50,
   },
-  {
-    id: '5',
-    name: 'Carved Wooden Mask',
-    category: 'Wood',
-    price: 85.00,
-    description: 'Ceremonial mask carved from single block of Kadamba wood. Protects the home from evil spirits.',
-    material: 'Kadamba Wood',
-    image: 'https://picsum.photos/400/400?random=5',
-    artisan: 'Arun Woodworks',
-    region: 'Nagaland',
-    isFeatured: false
-  },
-  {
-    id: '6',
-    name: 'Ikat Woven Shawl',
-    category: 'Textiles',
-    price: 150.00,
-    description: 'Handloomed cotton shawl featuring geometric Ikat patterns dyed with indigo.',
-    material: '100% Cotton',
-    image: 'https://picsum.photos/400/400?random=6',
-    artisan: 'Sambalpuri Weavers',
-    region: 'Odisha',
-    isFeatured: true
-  },
-  {
-    id: '7',
-    name: 'Bamboo Fruit Basket',
-    category: 'Bamboo',
-    price: 25.00,
-    description: 'Sturdy and lightweight fruit basket woven with treated bamboo strips.',
-    material: 'Bamboo',
-    image: 'https://picsum.photos/400/400?random=7',
-    artisan: 'Green Crafts',
-    region: 'Meghalaya',
-    isFeatured: false
-  },
-  {
-    id: '8',
-    name: 'Beaded Tribal Earrings',
-    category: 'Jewelry',
-    price: 18.00,
-    description: 'Colorful glass bead earrings in traditional geometric patterns.',
-    material: 'Glass Beads, Silver hook',
-    image: 'https://picsum.photos/400/400?random=8',
-    artisan: 'Naga Jewelry Unit',
-    region: 'Nagaland',
-    isFeatured: false
-  },
-  {
-    id: '9',
-    name: 'Wild Forest Honey',
-    category: 'Food & Fruits',
-    price: 15.00,
-    description: 'Pure, raw honey collected from wild beehives in the deep forests of Nilgiris.',
-    material: 'Organic Honey',
-    image: 'https://picsum.photos/400/400?random=9',
-    artisan: 'Nilgiri Bee Keepers',
-    region: 'Tamil Nadu',
-    isFeatured: true
-  },
-  {
-    id: '10',
-    name: 'Dried Mahua Flowers',
-    category: 'Food & Fruits',
-    price: 12.00,
-    description: 'Sun-dried organic Mahua flowers, traditionally used for brewing and cooking.',
-    material: 'Mahua Flowers',
-    image: 'https://picsum.photos/400/400?random=10',
-    artisan: 'Bastar Forest Cooperative',
-    region: 'Chhattisgarh',
-    isFeatured: false
-  },
-  {
-    id: '11',
-    name: 'Finger Millet Cookies',
-    category: 'Food & Fruits',
-    price: 8.00,
-    description: 'Healthy and crunchy cookies made from organically grown Ragi (Finger Millet).',
-    material: 'Millet, Jaggery',
-    image: 'https://picsum.photos/400/400?random=11',
-    artisan: 'Tribal Women Self-Help Group',
-    region: 'Odisha',
-    isFeatured: false
-  }
-];
-
-export const FAQS = [
-  {
-    q: "Are these products authentically handmade?",
-    a: "Yes, every item is handcrafted by skilled tribal artisans. We work directly with them to ensure authenticity."
-  },
-  {
-    q: "How does my purchase support the artisans?",
-    a: "We follow a fair-trade model. 70% of the sale price goes directly to the artisan or the cooperative."
-  },
-  {
-    q: "Do you ship internationally?",
-    a: "Currently, we ship within the country. International shipping is coming soon."
-  },
-  {
-    q: "What is the return policy?",
-    a: "We accept returns within 7 days for damaged goods. Due to the handmade nature, slight variations in design are normal and not considered defects."
-  }
 ];

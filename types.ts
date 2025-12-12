@@ -1,29 +1,54 @@
-export interface Product {
+export type Language = 'en' | 'hi' | 'mr';
+
+export type UserRole = 'guest' | 'customer' | 'producer' | 'admin';
+
+export interface User {
   id: string;
   name: string;
-  category: Category;
-  price: number;
-  description: string;
-  material: string;
-  image: string;
-  artisan: string;
-  region: string;
-  isFeatured?: boolean;
+  role: UserRole;
+  avatar?: string;
+  shopName?: string; // For producers
+  location?: string;
 }
 
-export type Category = 'Bamboo' | 'Wood' | 'Paintings' | 'Jewelry' | 'Textiles' | 'Pottery' | 'Food & Fruits';
+export type Category = 
+  | 'paintings' 
+  | 'handicrafts' 
+  | 'statues' 
+  | 'minerals' 
+  | 'fruits' 
+  | 'clothing' 
+  | 'instruments' 
+  | 'cultural';
+
+export interface Product {
+  id: string;
+  sellerId: string;
+  title: string;
+  description: string;
+  price: number;
+  category: Category;
+  image: string;
+  stock: number;
+}
 
 export interface CartItem extends Product {
   quantity: number;
 }
 
-export interface FilterState {
-  category: Category | 'All';
-  maxPrice: number;
-  sortBy: 'newest' | 'price-low' | 'price-high' | 'popular';
+export interface Order {
+  id: string;
+  customerId: string;
+  items: CartItem[];
+  total: number;
+  status: 'pending' | 'processing' | 'shipped' | 'delivered';
+  date: string;
 }
 
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
+export interface Translation {
+  [key: string]: {
+    en: string;
+    hi: string;
+    mr: string;
+  }
 }

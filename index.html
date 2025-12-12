@@ -3,70 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TribalRoots - Authentic Heritage Crafts</title>
+    <title>TribalHeritage Market</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              serif: ['Cinzel', 'serif'],
-              sans: ['Inter', 'sans-serif'],
+              sans: ['Outfit', 'Noto Sans Devanagari', 'sans-serif'],
             },
             colors: {
-              earth: {
-                50: '#fdf8f6',
-                100: '#f2e8e5',
-                200: '#eaddd7',
-                300: '#e0cec7',
-                500: '#a1887f',
-                800: '#5d4037',
-                900: '#3e2723',
-              },
-              nature: {
-                800: '#2e4a3d',
-                900: '#1b2e25'
-              },
-              clay: '#d7ccc8'
+              tribal: {
+                50: '#fcfaf8',
+                100: '#f5f0eb',
+                200: '#ebe0d6',
+                300: '#dec6b5',
+                400: '#cfa58e',
+                500: '#b88062', // Earthy terracotta
+                600: '#ab6b4f',
+                700: '#8f5641',
+                800: '#754738',
+                900: '#5e3a2f',
+              }
             }
           }
         }
       }
     </script>
     <style>
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
+      body {
+        background-color: #fcfaf8;
       }
     </style>
   <script type="importmap">
 {
   "imports": {
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0"
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-earth-50 text-earth-900 font-sans antialiased">
+  <body>
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
